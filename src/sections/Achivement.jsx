@@ -36,7 +36,7 @@ const certificates = [
 // --- TYPEWRITER EFFECT FOR LIST ITEMS ---
 const TypewriterLine = ({ text, delay = 0 }) => {
   const letters = text.split("");
-  
+
   const container = {
     hidden: { opacity: 0 },
     visible: {
@@ -75,8 +75,8 @@ const Certificates = () => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-            setInView(true);
-            setHasLoaded(true); // Trigger list animation
+          setInView(true);
+          setHasLoaded(true); // Trigger list animation
         }
       },
       { threshold: 0.3 }
@@ -90,16 +90,17 @@ const Certificates = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-black text-white py-20 px-6 min-h-screen flex flex-col justify-center"
+      className="bg-black text-white py-24 px-6 min-h-screen flex flex-col justify-center"
       id="achievement"
     >
-      <div className="max-w-7xl mx-auto w-full">
+      <div className="max-w-6xl mx-auto w-full">
         {/* --- HEADER SECTION --- */}
         <div className="flex flex-col items-center text-center justify-center mb-20 w-full">
           <div
-            className={`text-primary text-6xl font-rakkas relative inline-block ${
-              inView ? "animate-underline" : ""
-            }`}
+            className={`text-primary 
+          text-3xl sm:text-5xl lg:text-6xl 
+          font-rakkas relative inline-block
+          ${inView ? "animate-underline" : ""}`}
           >
             Achivements
             <span className="dot-container">
@@ -114,8 +115,8 @@ const Certificates = () => {
               </span>
             </span>
           </div>
-          <div className="font-inter pt-6 font-light tracking-wide">
-            <p>
+          <div  className="font-inter pt-4 sm:pt-6 font-light tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl">
               Where <span className="text-primary"> effort </span> meets{" "}
               <span className="text-primary">excellence</span> — through
               <span className="text-primary">
@@ -127,9 +128,9 @@ const Certificates = () => {
         </div>
 
         {/* --- MAIN CONTENT (Split View) --- */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mx-20 items-start relative">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8  items-start relative w-full">
           {/* LEFT: THE LIST */}
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-4 sm:gap-6">
             {certificates.map((cert, index) => (
               <motion.div
                 key={cert.id}
@@ -138,12 +139,11 @@ const Certificates = () => {
                 transition={{ delay: index * 0.3, duration: 0.5 }} // Staggered entry
                 onMouseEnter={() => setHoveredCert(cert)}
                 onClick={() => setSelectedCert(cert)}
-                className={`group cursor-pointer p-6 rounded-xl border transition-all duration-300 relative overflow-hidden
-                    ${
-                      hoveredCert?.id === cert.id
-                        ? "border-primary bg-zinc-900"
-                        : "border-zinc-800 bg-transparent hover:border-zinc-600"
-                    }`}
+                className={`group cursor-pointer p-4 sm:p-6 rounded-xl border transition-all duration-300 relative overflow-hidden
+                    ${hoveredCert?.id === cert.id
+                    ? "border-primary bg-zinc-900"
+                    : "border-zinc-800 bg-transparent hover:border-zinc-600"
+                  }`}
               >
                 {/* Hover Glow Effect */}
                 {hoveredCert?.id === cert.id && (
@@ -153,10 +153,10 @@ const Certificates = () => {
                   />
                 )}
 
-                <div className="flex justify-between items-start">
+                <div className="flex flex-col sm:flex-row justify-between items-start gap-2 sm:gap-0">
                   <div className="flex flex-col gap-2">
                     {/* Title with Typewriter Effect (only triggers once) */}
-                    <h3 className="text-xl md:text-2xl font-bold group-hover:text-primary transition-colors">
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold group-hover:text-primary transition-colors">
                       {hasLoaded ? (
                         <TypewriterLine text={cert.title} delay={index * 0.3} />
                       ) : (
@@ -164,13 +164,13 @@ const Certificates = () => {
                       )}
                     </h3>
 
-                    <div className="flex items-center gap-2 text-zinc-400 text-sm">
+                    <div className="flex items-center gap-2 text-zinc-400 text-xs sm:text-sm">
                       <Award size={14} className="text-primary" />
                       <span>{cert.issuer}</span>
                     </div>
                   </div>
 
-                  <span className="text-xs font-mono text-zinc-500 border border-zinc-800 px-2 py-1 rounded">
+                  <span className="text-xs font-mono text-zinc-500 border border-zinc-800 px-2 py-1 rounded mt-2 sm:mt-0">
                     {cert.date}
                   </span>
                 </div>
@@ -179,7 +179,7 @@ const Certificates = () => {
           </div>
 
           {/* RIGHT: THE PREVIEW IMAGE (Sticky) */}
-          <div className=" md:block sticky top-24 h-[400px] w-full bg-zinc-900/50 rounded-2xl border border-zinc-800 overflow-hidden flex items-center justify-center p-8">
+          <div className="w-full md:w-auto sticky md:top-24 h-[250px] xs:h-[300px] sm:h-[350px] md:h-[400px] bg-zinc-900/50 rounded-2xl border border-zinc-800 overflow-hidden flex items-center justify-center p-4 sm:p-8 mt-8 md:mt-0">
             <AnimatePresence mode="wait">
               {hoveredCert && (
                 <motion.div
@@ -191,12 +191,12 @@ const Certificates = () => {
                   className="relative w-full h-full shadow-2xl"
                 >
                   {/* The Image looking like a document */}
-                  <div className="relative w-full h-full bg-white p-2 rounded-lg shadow-black/50 shadow-xl">
+                  <div className="relative w-full h-full bg-white p-1 sm:p-2 rounded-lg shadow-black/50 shadow-xl flex items-center justify-center">
                     <div className="w-full h-full relative overflow-hidden rounded border border-zinc-200">
                       <img
                         src={hoveredCert.image}
                         alt={hoveredCert.title}
-                        className="w-full h-full object-cover"
+                        className="w-full h-full object-contain object-center"
                       />
                       {/* Overlay to make it look like a preview */}
                       <div
@@ -220,7 +220,7 @@ const Certificates = () => {
             </AnimatePresence>
 
             {!hoveredCert && (
-              <p className="text-zinc-600 animate-pulse">
+              <p className="text-zinc-600 animate-pulse text-center text-xs sm:text-base">
                 Hover over a certificate...
               </p>
             )}

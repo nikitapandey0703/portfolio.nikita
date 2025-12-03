@@ -81,10 +81,6 @@ const NavBar = () => {
           }
         `}
       >
-        {/* 
-           Responsive Padding: 
-           px-4 (Mobile) -> px-8 (Tablet) -> px-12 (Desktop) 
-        */}
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex justify-between items-center">
           {/* --- LOGO --- */}
           <a
@@ -94,21 +90,20 @@ const NavBar = () => {
           >
             Nikita<span className="text-primary">.</span>
           </a>
-
           {/* --- DESKTOP MENU (Hidden on Mobile & Tablet) --- */}
-          {/* Using 'hidden lg:flex' ensures it stays hidden until the screen is large enough */}
           <ul className="hidden lg:flex items-center gap-8 font-inter text-sm font-bold tracking-wide">
             {menuItems.map((item) => (
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className={`relative py-2 transition-colors duration-300 group
+                  className={`relative py-2 px-2 transition-colors duration-300 group
                     ${
                       activeSection === item.href
                         ? "text-primary"
                         : "text-zinc-400 hover:text-white"
                     }
                   `}
+                  style={{ fontSize: "1rem" }} // Maintain font size
                 >
                   {item.name}
                   <span
@@ -124,44 +119,54 @@ const NavBar = () => {
               </li>
             ))}
           </ul>
-
           {/* --- HAMBURGER BUTTON (Visible on Mobile & Tablet) --- */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="lg:hidden text-white hover:text-primary transition-colors z-50 p-2 focus:outline-none"
             aria-label="Toggle Menu"
           >
-            {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
+            <Menu size={28} />
           </button>
         </div>
 
         {/* --- MOBILE/TABLET FULL-SCREEN MENU --- */}
-        <div
-          className={`fixed inset-0 bg-black/95 backdrop-blur-xl z-40 flex flex-col items-center justify-center gap-8 transition-all duration-500 ease-in-out lg:hidden
-            ${
-              isMenuOpen
-                ? "opacity-100 translate-y-0 pointer-events-auto"
-                : "opacity-0 -translate-y-10 pointer-events-none"
-            }
-          `}
-        >
-          {menuItems.map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
+        {isMenuOpen && (
+          <div
+            className={`
+              fixed top-0 left-0 w-screen h-screen min-h-[100dvh] bg-black z-[60] flex flex-col items-center justify-center gap-10
+              transition-all duration-500 ease-in-out
+              lg:hidden
+            `}
+          >
+            {/* Cross Button at Top-Right */}
+            <button
               onClick={() => setIsMenuOpen(false)}
-              className={`text-2xl sm:text-3xl font-rakkas tracking-wider transition-all duration-300
-                ${
-                  activeSection === item.href
-                    ? "text-primary scale-110"
-                    : "text-zinc-400 hover:text-white"
-                }
-              `}
+              className="absolute top-6 right-6 text-white hover:text-primary transition-colors z-[70] p-2 focus:outline-none"
+              aria-label="Close Menu"
             >
-              {item.name}
-            </a>
-          ))}
-        </div>
+              <X size={36} />
+            </button>
+            <div className="flex flex-col items-center justify-center gap-10 w-full mt-8">
+              {menuItems.map((item) => (
+                <a
+                  key={item.name}
+                  href={item.href}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`text-2xl xs:text-2xl sm:text-3xl md:text-4xl font-rakkas tracking-wider transition-all duration-300 text-center w-full
+                    ${
+                      activeSection === item.href
+                        ? "text-primary scale-110"
+                        : "text-zinc-400 hover:text-white"
+                    }
+                  `}
+                  style={{ fontSize: "2rem" }} // Maintain font size for mobile
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
       </nav>
     </>
   );

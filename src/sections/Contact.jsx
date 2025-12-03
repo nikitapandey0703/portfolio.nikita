@@ -3,34 +3,42 @@ import React, { useRef, useEffect, useState } from "react";
 import ContactForm from "../components/ContactForm";
 
 const Contact = () => {
-   const textRef = useRef(null);
-    const [inView, setInView] = useState(false);
-  
-    useEffect(() => {
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setInView(true);
-        },
-        { threshold: 0.5 }
-      );
-  
-      if (textRef.current) observer.observe(textRef.current);
-  
-      return () => {
-        if (textRef.current) observer.unobserve(textRef.current);
-      };
-    }, []);
+  const textRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setInView(true);
+      },
+      { threshold: 0.5 }
+    );
+
+    if (textRef.current) observer.observe(textRef.current);
+
+    return () => {
+      if (textRef.current) observer.unobserve(textRef.current);
+    };
+  }, []);
+
   return (
-    <div id="contact" className=" h-auto w-full flex justify-center items-center">
-      <div className=" w-[80%] pt-10  flex-col text-center justify-center ">
+    <section
+      id="contact"
+      className="
+       bg-black text-white py-24 px-6 min-h-screen flex flex-col justify-center
+      "
+    >
+      <div className="max-w-6xl mx-auto w-full flex flex-col items-center text-center">
         <div
           ref={textRef}
-          className={`text-primary text-6xl font-rakkas relative inline-block ${
-            inView ? "animate-underline" : ""
-          }`}
+          className={`
+           text-primary 
+            text-3xl sm:text-5xl lg:text-6xl 
+            font-rakkas relative inline-block
+            ${inView ? "animate-underline" : ""}`}
         >
           Contact Me
-          <span className="dot-container">
+          <span className="dot-container ml-2">
             <span className={`dot ${inView ? "dot-appear delay-1" : ""}`}>
               .
             </span>
@@ -42,20 +50,25 @@ const Contact = () => {
             </span>
           </span>
         </div>
-        <div className="font-inter pt-6 font-light tracking-wide">
-          <p>
+        <div className="font-inter pt-4 sm:pt-6 font-light tracking-wide">
+          <p className="text-base sm:text-lg md:text-xl"> 
             Where <span className="text-primary">collaboration</span> meets{" "}
             <span className="text-primary">
-              possibility -
-              <br />
-              contact me.
+              possibility
+            </span>
+            <span className="text-primary">
+              <span className="hidden sm:inline"> – contact me.</span>
+              <br className="sm:hidden" />
+              <span className="sm:hidden">– contact me.</span>
             </span>
           </p>
         </div>
-       <ContactForm />
+        <div className="w-full mt-8">
+          <ContactForm />
+        </div>
       </div>
-    </div>
+    </section>
   );
-}
+};
 
 export default Contact;

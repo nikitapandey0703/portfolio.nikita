@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+  import React, { useState, useRef, useEffect } from "react";
 import { motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import {
   FaReact,
@@ -158,16 +158,17 @@ const Skills = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-black text-white py-24 px-6 min-h-[80vh] flex flex-col justify-center"
+      className="bg-black text-white py-24 px-6 min-h-screen flex flex-col justify-center"
       id="skills"
     >
-      <div className="max-w-6xl mx-auto w-full">
+      <div className="max-w-6xl mx-auto w-full  ">
         {/* --- HEADER --- */}
         <div className="flex flex-col items-center text-center justify-center mb-20 w-full">
           <div
-            className={`text-primary text-6xl font-rakkas relative inline-block ${
-              inView ? "animate-underline" : ""
-            }`}
+            className={`text-primary 
+            text-3xl sm:text-5xl lg:text-6xl 
+            font-rakkas relative inline-block
+            ${inView ? "animate-underline" : ""}`}
           >
             Skills
             <span className="dot-container">
@@ -182,8 +183,8 @@ const Skills = () => {
               </span>
             </span>
           </div>
-          <div className="font-inter pt-6 font-light tracking-wide">
-            <p>
+          <div className="font-inter pt-4 sm:pt-6 font-light tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl"> 
               Where <span className="text-primary">creativity</span> meets{" "}
               <span className="text-primary"> capability</span> — through
               <span className="text-primary">

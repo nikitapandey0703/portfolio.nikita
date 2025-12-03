@@ -6,42 +6,42 @@ import { X, Github, ExternalLink, Play } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "KeyPuse",
-    category: "Full Stack",
+    title: "KeyPulse",
+    category: "React Project",
     image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+      "/pro1.png",
     video: "/keyPulse.mp4", // Make sure this file is in your public/ folder
-    shortDesc: "A comprehensive dashboard for managing sales and inventory.",
+    shortDesc: "KeyPulse",
     fullDesc:
-      "This project is a high-performance admin dashboard built to manage large-scale e-commerce inventories. It features real-time data visualization, order tracking, and user role management. The UI is designed for maximum efficiency with dark mode support.",
-    tech: ["React", "Tailwind", "Node.js", "MongoDB"],
-    links: { live: "#", github: "#" },
+      "KeyPulse is a modern typing-speed testing platform built specifically for programmers. It allows users to practice typing using both normal English paragraphs and real code snippets in languages like C++, SQL, Java, and JavaScript. The platform offers multiple difficulty levels (Easy, Medium, Hard) and features a clean, distraction-free UI with smooth transitions. Designed with responsiveness and speed in mind, KeyPulse delivers accurate WPM, accuracy, and error analytics using a lightweight React + Tailwind stack.",
+    tech: ["React", "Tailwind CSS"],
+    links: { live: "https://keypulse-tm.vercel.app/", github: "https://github.com/nikitapandey0703/KeyPulse-Programmer-Typing-Master" },
   },
   {
     id: 2,
-    title: "AI Image Generator",
-    category: "AI / ML Wrapper",
+    title: "Collaboard Major Project",
+    category: "Desktop Application",
     image:
-      "https://images.unsplash.com/photo-1620712943543-bcc4688e7485?q=80&w=2565&auto=format&fit=crop",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    shortDesc: "Generate stunning visuals using Stable Diffusion API.",
+      "/pro2.png",
+    video: "/vid2.mp4",
+    shortDesc: "Collaboard Major Project",
     fullDesc:
-      "An intuitive interface interacting with the Stable Diffusion API. Users can input prompts, select styles, and upscale images. Optimized for speed with server-side caching and a responsive masonry grid layout for the gallery.",
-    tech: ["Next.js", "OpenAI API", "Framer Motion"],
-    links: { live: "#", github: "#" },
+      "CollabBoard is a powerful desktop application that brings real-time collaboration to brainstorming, sketching ideas, and writing code. Built using Electron and React, it features a full whiteboard environment powered by TLDraw, enabling users to draw, annotate, and design together seamlessly. The app also integrates a shared code editor for team coding, making it ideal for group projects, planning, or remote teamwork. Supabase handles authentication and real-time data sync, ensuring smooth multi-user collaboration across devices. Designed as a major project, CollabBoard focuses on performance, usability, and real-time synchronization.",
+    tech: ["Electron", "React", "TLDraw", "Supabase"],
+    links: { live: "https://github.com/nikitapandey0703/Major-Project", github: "https://github.com/nikitapandey0703/Major-Project" },
   },
   {
     id: 3,
-    title: "Fintech Landing Page",
-    category: "UI/UX Design",
+    title: "Ford Reimagined",
+    category: "Frontend / Creative Web Design",
     image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2670&auto=format&fit=crop",
-    video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    shortDesc: "Modern banking interface with 3D elements.",
+      "/pro3.png",
+    video: "/vid3.mp4",
+    shortDesc: "Ford Reimagined",
     fullDesc:
-      "A pixel-perfect landing page for a neo-bank startup. Features complex CSS animations, 3D spline integration, and scroll-triggered reveals. Focus was placed on accessibility and mobile-first performance.",
-    tech: ["Vue.js", "Three.js", "GSAP"],
-    links: { live: "#", github: "#" },
+      "Ford Reimagined is a visually engaging concept website created for a Sheryians Hackathon. It redesigns the Ford brand experience with a futuristic aesthetic, smooth UI interactions, and bold typography. Using GSAP animations, the site delivers rich motion effects, dynamic transitions, and an immersive browsing flow. Built purely with HTML, CSS, and JavaScript, the project showcases creative web design skills and a strong focus on animation-driven storytelling.",
+    tech: ["HTML", "Tailwind CSS", "JavaScript", "GSAP"],
+    links: { live: "https://the-triple-threat-reimagine-round1.vercel.app/", github: "https://github.com/nikitapandey0703/Ford" },
   },
 ];
 
@@ -100,43 +100,52 @@ const ProjectsSection = () => {
 
   return (
     <>
-      {/* CSS for Header Animations with #FFBD47 */}
+      {/* CSS for Header Animations with #FFBD47 and responsive tweaks */}
       <style>{`
         .dot-container { display: inline-block; margin-left: 5px; }
-        .dot { opacity: 0; transition: opacity 0.5s ease-in-out; color: #FFBD47; } /* Updated Color */
+        .dot { opacity: 0; transition: opacity 0.5s ease-in-out; color: #FFBD47; }
         .dot-appear { opacity: 1; }
         .delay-1 { transition-delay: 0.2s; }
         .delay-2 { transition-delay: 0.4s; }
         .delay-3 { transition-delay: 0.6s; }
-        
+
         .animate-underline::after {
           content: '';
           position: absolute;
           left: 0;
           bottom: -5px;
           width: 0;
-          height: 3px; 
-          background-color: #FFBD47; /* Updated Color */
+          height: 3px;
+          background-color: #FFBD47;
           animation: underline-grow 1s ease-out forwards;
         }
         @keyframes underline-grow {
           to { width: 100%; }
         }
+
+        /* Responsive tweaks for modal scroll */
+        @media (max-width: 768px) {
+          .project-modal-content {
+            max-height: 90vh;
+            min-height: 0;
+          }
+        }
       `}</style>
 
       <section
-        className="bg-black text-white py-20 px-6 min-h-screen"
+        className="bg-black text-white py-24 px-6 min-h-screen flex flex-col justify-center  "
         id="projects"
       >
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-6xl w-full mx-auto  ">
           {/* --- HEADER SECTION --- */}
-          <div className="flex flex-col items-center text-center justify-center mb-20 w-full">
+          <div className="flex flex-col items-center text-center justify-center mb-14 sm:mb-20 w-full">
             {/* Main Title "My Projects" with Animation */}
             <div
               ref={textRef}
-              className={`text-primary text-6xl font-rakkas relative inline-block ${
-                inView ? "animate-underline" : ""
-              }`}
+              className={`text-primary 
+            text-3xl sm:text-5xl lg:text-6xl 
+            font-rakkas relative inline-block
+            ${inView ? "animate-underline" : ""}`}
             >
               My Projects
               <span className="dot-container">
@@ -151,12 +160,12 @@ const ProjectsSection = () => {
                 </span>
               </span>
             </div>
-            <div className="font-inter pt-6 font-light tracking-wide">
-              <p>
+            <div className="font-inter pt-4 sm:pt-6 font-light tracking-wide">
+              <p className="text-base sm:text-lg md:text-xl">
                 Where <span className="text-primary">creativity</span> meets{" "}
                 <span className="text-primary">functionality</span>— through
                 <span className="text-primary">
-                  <br />
+                  <br className="hidden xs:block" />
                   projects.
                 </span>
               </p>
@@ -164,14 +173,14 @@ const ProjectsSection = () => {
           </div>
           {/* --- END HEADER SECTION --- */}
 
-          {/* Project Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mx-20">
+          {/* Project Grid (responsive) */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 ">
             {projects.map((project) => (
               <motion.div
                 key={project.id}
                 layoutId={`card-${project.id}`}
                 onClick={() => setSelectedProject(project)}
-                className="group relative h-80 rounded-2xl overflow-hidden cursor-pointer bg-zinc-900 border border-zinc-800"
+                className="group relative h-64 sm:h-80 rounded-2xl overflow-hidden cursor-pointer bg-zinc-900 border border-zinc-800 flex"
                 whileHover="hover"
               >
                 <img
@@ -181,16 +190,15 @@ const ProjectsSection = () => {
                 />
 
                 <motion.div
-                  // Updated Gradient Colors to #FFBD47
-                  className="absolute inset-0 bg-linear-to-t from-primary/90 via-primary/80 to-black/40 p-6 flex flex-col justify-end"
+                  className="absolute inset-0 bg-gradient-to-t from-primary/90 via-primary/80 to-black/40 p-4 sm:p-6 flex flex-col justify-end"
                   initial={{ y: "100%" }}
                   variants={{ hover: { y: "0%" } }}
                   transition={{ duration: 0.4, ease: "easeInOut" }}
                 >
-                  <h3 className="text-2xl font-bold text-white mb-2">
+                  <h3 className="text-lg sm:text-2xl font-bold text-white mb-1 sm:mb-2">
                     {project.title}
                   </h3>
-                  <div className="text-sm font-medium text-white/90 h-12 overflow-hidden">
+                  <div className="text-xs sm:text-sm font-medium text-white/90 h-10 sm:h-12 overflow-hidden">
                     <motion.div
                       variants={{ hover: { opacity: 1 } }}
                       initial={{ opacity: 0 }}
@@ -198,7 +206,7 @@ const ProjectsSection = () => {
                       <TypewriterText text={project.shortDesc} />
                     </motion.div>
                   </div>
-                  <div className="mt-4 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider">
+                  <div className="mt-2 sm:mt-4 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider">
                     View Project <Play size={12} className="fill-current" />
                   </div>
                 </motion.div>
@@ -215,22 +223,22 @@ const ProjectsSection = () => {
                   animate={{ opacity: 1 }}
                   exit={{ opacity: 0 }}
                   onClick={() => setSelectedProject(null)}
-                  className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+                  className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-2 sm:p-4"
                 >
                   <motion.div
                     layoutId={`card-${selectedProject.id}`}
-                    className="bg-[#111] w-full max-w-5xl rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl relative flex flex-col md:flex-row max-h-[90vh]"
+                    className="project-modal-content bg-[#111] w-full max-w-2xl sm:max-w-3xl lg:max-w-5xl rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl relative flex flex-col md:flex-row max-h-[90vh]"
                     onClick={(e) => e.stopPropagation()}
                   >
                     <button
                       onClick={() => setSelectedProject(null)}
-                      className="absolute top-4 right-4 z-10 p-2 bg-black/50 hover:bg-white/20 rounded-full text-white transition-colors"
+                      className="absolute top-2 right-2 sm:top-4 sm:right-4 z-10 p-2 bg-black/50 hover:bg-white/20 rounded-full text-white transition-colors"
                     >
                       <X size={20} />
                     </button>
 
                     {/* Video Section */}
-                    <div className="w-full md:w-3/5 bg-black flex items-center justify-center relative min-h-[300px] md:min-h-auto border-b md:border-b-0 md:border-r border-zinc-800">
+                    <div className="w-full md:w-3/5 bg-black flex items-center justify-center relative min-h-[180px] xs:min-h-[220px] sm:min-h-[250px] md:min-h-[300px] md:min-h-auto border-b md:border-b-0 md:border-r border-zinc-800">
                       <video
                         src={selectedProject.video}
                         controls
@@ -238,42 +246,43 @@ const ProjectsSection = () => {
                         muted
                         loop
                         className="w-full h-full object-contain bg-black"
+                        style={{ maxHeight: "400px" }}
                       />
                     </div>
 
                     {/* Content Section */}
-                    <div className="w-full md:w-2/5 p-8 flex flex-col overflow-y-auto">
-                      <span className="text-primary font-bold tracking-wider text-sm mb-2">
+                    <div className="w-full md:w-2/5 p-4 sm:p-8 flex flex-col overflow-y-auto max-h-[400px] md:max-h-none">
+                      <span className="text-primary font-bold tracking-wider text-xs sm:text-sm mb-1 sm:mb-2">
                         {selectedProject.category}
                       </span>
-                      <h2 className="text-3xl font-bold mb-4">
+                      <h2 className="text-xl sm:text-3xl font-bold mb-2 sm:mb-4">
                         {selectedProject.title}
                       </h2>
-                      <p className="text-zinc-400 leading-relaxed mb-6">
+                      <p className="text-zinc-400 text-sm sm:text-base leading-relaxed mb-4 sm:mb-6">
                         {selectedProject.fullDesc}
                       </p>
 
-                      <div className="flex flex-wrap gap-2 mb-8">
+                      <div className="flex flex-wrap gap-1 sm:gap-2 mb-6 sm:mb-8">
                         {selectedProject.tech.map((t) => (
                           <span
                             key={t}
-                            className="px-3 py-1 bg-zinc-800 text-zinc-300 text-xs rounded-full border border-zinc-700"
+                            className="px-2 py-1 sm:px-3 sm:py-1 bg-zinc-800 text-zinc-300 text-xs rounded-full border border-zinc-700 mb-1"
                           >
                             {t}
                           </span>
                         ))}
                       </div>
 
-                      <div className="mt-auto flex gap-4 pt-6 border-t border-zinc-800">
+                      <div className="mt-auto flex flex-col sm:flex-row gap-3 sm:gap-4 pt-4 sm:pt-6 border-t border-zinc-800">
                         <a
                           href={selectedProject.links.live}
-                          className="flex-1 bg-white text-black font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-primary transition-colors"
+                          className="flex-1 bg-white text-black font-bold py-2 sm:py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-primary transition-colors text-center text-sm sm:text-base"
                         >
                           <ExternalLink size={18} /> Live Demo
                         </a>
                         <a
                           href={selectedProject.links.github}
-                          className="flex-1 bg-zinc-800 text-white font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-zinc-700 transition-colors"
+                          className="flex-1 bg-zinc-800 text-white font-bold py-2 sm:py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-zinc-700 transition-colors text-center text-sm sm:text-base"
                         >
                           <Github size={18} /> Source
                         </a>

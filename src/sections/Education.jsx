@@ -74,16 +74,17 @@ const Education = () => {
         @keyframes underline-grow { to { width: 100%; } }
       `}</style>
 
-     
-        {/* --- HEADER --- */}
 
+      {/* --- HEADER --- */}
 
+      <div className="max-w-6xl mx-auto w-full  ">
         <div className="flex flex-col items-center text-center justify-center mb-20 w-full">
           <div
             ref={textRef}
-            className={`text-primary text-6xl font-rakkas relative inline-block ${
-              inView ? "animate-underline" : ""
-            }`}
+            className={`text-primary 
+              text-3xl sm:text-5xl lg:text-6xl 
+              font-rakkas relative inline-block
+              ${inView ? "animate-underline" : ""}`}
           >
             Education
             <span className="dot-container">
@@ -99,8 +100,8 @@ const Education = () => {
             </span>
           </div>
 
-          <div className="font-inter pt-6 font-light tracking-wide text-zinc-400">
-            <p>
+          <div className="font-inter pt-4 sm:pt-6 font-light tracking-wide">
+            <p className="text-base sm:text-lg md:text-xl"> 
               Where <span className="text-primary">insight</span> meets
               <span className="text-primary"> improvement</span> — through
               <span className="text-primary">
@@ -112,7 +113,7 @@ const Education = () => {
         </div>
 
         {/* --- CARDS GRID --- */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6  mx-20 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {educationData.map((item, index) => (
             <motion.div
               key={index}
@@ -131,7 +132,7 @@ const Education = () => {
             </motion.div>
           ))}
         </div>
-
+      </div>
     </section>
   );
 };
