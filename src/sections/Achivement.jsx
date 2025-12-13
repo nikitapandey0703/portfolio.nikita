@@ -5,6 +5,15 @@ import { X, ExternalLink, Award, Calendar } from "lucide-react";
 // --- DUMMY DATA ---
 const certificates = [
   {
+    id: 4,
+    title: "UI/UX Designing Internship",
+    issuer: "TFP Technologies",
+    date: "Sep 2025 - Nov 2025",
+    // Save your UI/UX design certificate image as 'uiux.jpg' in public/certificates/
+    image: "/UIDesigner.png",
+    link: "#",
+  },
+  {
     id: 1,
     title: "Java Programming Internship",
     issuer: "CodTech IT Solutions",
@@ -31,6 +40,7 @@ const certificates = [
     image: "/medially.jpg",
     link: "#",
   },
+
 ];
 
 // --- TYPEWRITER EFFECT FOR LIST ITEMS ---

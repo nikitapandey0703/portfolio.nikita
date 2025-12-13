@@ -84,7 +84,7 @@ const NavBar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 flex justify-between items-center">
           {/* --- LOGO --- */}
           <a
-            href="#about"
+            href="/"
             className="text-2xl lg:text-3xl font-rakkas font-bold text-white tracking-wider z-50 relative"
             onClick={() => setIsMenuOpen(false)}
           >
