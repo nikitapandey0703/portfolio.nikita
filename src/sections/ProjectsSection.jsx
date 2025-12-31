@@ -49,7 +49,7 @@ const projects = [
     category: "Frontend / Redesigned",
     image:
       "/pro4.png",
-    video: "/vid3.mp4",
+    video: "/vid4.mp4",
     shortDesc: "Maison Website",
     fullDesc:
       "Maison Website is a replica of the Maison template, built to learn React and TailwindCSS. The site features a clean, modern design with responsive layouts and smooth interactions. It uses React for dynamic components and TailwindCSS for efficient, utility-based styling, creating a polished and mobile-friendly",
@@ -62,7 +62,7 @@ const projects = [
     category: "Frontend Website",
     image:
       "/pro5.png",
-    video: "/vid3.mp4",
+    video: "/vid5.mp4",
     shortDesc: "Date Timer Picker Component",
     fullDesc:
       "Date Time Picker is a lightweight UI component designed to select both date and time with ease. It features a clean, user-friendly interface with smooth interactions and responsive behavior. Built to focus on usability and precision, the component demonstrates strong fundamentals in handling form inputs, state management, and interactive UI design.",
@@ -75,7 +75,7 @@ const projects = [
     category: "Frontend / Creative Web Design",
     image:
       "/pro6.png",
-    video: "/vid3.mp4",
+    video: "/vid6.mp4",
     shortDesc: "Zappos Reimagined",
     fullDesc:
       "Zappos Reimagined is a visually engaging concept website created for a Sheryians Hackathon. It redesigns the Zappos brand experience with a futuristic aesthetic, smooth UI interactions, and bold typography. Using GSAP animations, the site delivers rich motion effects, dynamic transitions, and an immersive browsing flow. Built purely with HTML, CSS, and JavaScript, the project showcases creative web design skills and a strong focus on animation-driven storytelling.",
