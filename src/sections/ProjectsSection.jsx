@@ -48,7 +48,7 @@ const projects = [
     title: "Maison Website",
     category: "Frontend / Redesigned",
     image:
-      "/pro3.png",
+      "/pro4.png",
     video: "/vid3.mp4",
     shortDesc: "Maison Website",
     fullDesc:
@@ -61,7 +61,7 @@ const projects = [
     title: "Date Timer Picker Component",
     category: "Frontend Website",
     image:
-      "/pro3.png",
+      "/pro5.png",
     video: "/vid3.mp4",
     shortDesc: "Date Timer Picker Component",
     fullDesc:
@@ -74,9 +74,9 @@ const projects = [
     title: "Zappos Reimagined",
     category: "Frontend / Creative Web Design",
     image:
-      "/pro3.png",
+      "/pro6.png",
     video: "/vid3.mp4",
-    shortDesc: "Ford Reimagined",
+    shortDesc: "Zappos Reimagined",
     fullDesc:
       "Zappos Reimagined is a visually engaging concept website created for a Sheryians Hackathon. It redesigns the Zappos brand experience with a futuristic aesthetic, smooth UI interactions, and bold typography. Using GSAP animations, the site delivers rich motion effects, dynamic transitions, and an immersive browsing flow. Built purely with HTML, CSS, and JavaScript, the project showcases creative web design skills and a strong focus on animation-driven storytelling.",
     tech: ["HTML", "Tailwind CSS", "JavaScript", "GSAP"],
