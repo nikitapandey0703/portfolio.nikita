@@ -2,7 +2,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, Github, ExternalLink, Play } from "lucide-react";
 
-// --- DUMMY DATA ---
+// --- DATA ---
 const projects = [
   {
     id: 1,
@@ -42,6 +42,45 @@ const projects = [
       "Ford Reimagined is a visually engaging concept website created for a Sheryians Hackathon. It redesigns the Ford brand experience with a futuristic aesthetic, smooth UI interactions, and bold typography. Using GSAP animations, the site delivers rich motion effects, dynamic transitions, and an immersive browsing flow. Built purely with HTML, CSS, and JavaScript, the project showcases creative web design skills and a strong focus on animation-driven storytelling.",
     tech: ["HTML", "Tailwind CSS", "JavaScript", "GSAP"],
     links: { live: "https://the-triple-threat-reimagine-round1.vercel.app/", github: "https://github.com/nikitapandey0703/Ford" },
+  },
+    {
+    id: 4,
+    title: "Maison Website",
+    category: "Frontend / Redesigned",
+    image:
+      "/pro3.png",
+    video: "/vid3.mp4",
+    shortDesc: "Maison Website",
+    fullDesc:
+      "Maison Website is a replica of the Maison template, built to learn React and TailwindCSS. The site features a clean, modern design with responsive layouts and smooth interactions. It uses React for dynamic components and TailwindCSS for efficient, utility-based styling, creating a polished and mobile-friendly",
+    tech: ["React", "TailwindCSS"],
+    links: { live: "https://maison-website.vercel.app/", github: "https://github.com/nikitapandey0703/maison-website-" },
+  },
+    {
+    id: 5,
+    title: "Date Timer Picker Component",
+    category: "Frontend Website",
+    image:
+      "/pro3.png",
+    video: "/vid3.mp4",
+    shortDesc: "Date Timer Picker Component",
+    fullDesc:
+      "Date Time Picker is a lightweight UI component designed to select both date and time with ease. It features a clean, user-friendly interface with smooth interactions and responsive behavior. Built to focus on usability and precision, the component demonstrates strong fundamentals in handling form inputs, state management, and interactive UI design.",
+    tech: ["HTML", "Tailwind CSS", "JavaScript", "React"],
+    links: { live: "https://date-timer-picker.vercel.app/", github: "https://github.com/nikitapandey0703/Date-time-pickers" },
+  },
+    {
+    id: 6,
+    title: "Zappos Reimagined",
+    category: "Frontend / Creative Web Design",
+    image:
+      "/pro3.png",
+    video: "/vid3.mp4",
+    shortDesc: "Ford Reimagined",
+    fullDesc:
+      "Zappos Reimagined is a visually engaging concept website created for a Sheryians Hackathon. It redesigns the Zappos brand experience with a futuristic aesthetic, smooth UI interactions, and bold typography. Using GSAP animations, the site delivers rich motion effects, dynamic transitions, and an immersive browsing flow. Built purely with HTML, CSS, and JavaScript, the project showcases creative web design skills and a strong focus on animation-driven storytelling.",
+    tech: ["HTML", "Tailwind CSS", "JavaScript", "GSAP"],
+    links: { live: "https://the-triple-threat-reimagine-round2.vercel.app/", github: "https://github.com/nikitapandey0703/Zappos" },
   },
 ];
 
